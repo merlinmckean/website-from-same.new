@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/ui/contact-form"
-import { MerlinLogo } from "@/components/ui/merlin-logo"
 import { ArrowRight, Brain, Zap, Target, Shield, Users, Star, Check } from "lucide-react"
 
 // Client component for animations
@@ -32,7 +31,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 flex items-center justify-between p-6 md:px-12 bg-white/10 backdrop-blur-md border-b border-white/20">
         <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-          <MerlinLogo size="md" />
+          <img src="/merlin-ai-logo.png" alt="Merlin AI Logo" className="h-8 w-auto" />
         </a>
         <div className="flex items-center space-x-6 text-white/90 text-sm font-source-sans font-semibold">
           <a href="#services" className="hover:text-white transition-colors font-medium">Services</a>
@@ -297,7 +296,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="md:col-span-2">
                 <a href="/" className="flex items-center space-x-3 mb-6 hover:opacity-80 transition-opacity">
-                  <MerlinLogo size="md" />
+                  <img src="/merlin-ai-logo.png" alt="Merlin AI Logo" className="h-8 w-auto" />
                 </a>
                 <p className="text-gray-400 mb-6 max-w-md">
                   Transforming businesses through intelligent AI solutions.

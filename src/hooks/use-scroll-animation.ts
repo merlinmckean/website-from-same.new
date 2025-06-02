@@ -19,12 +19,18 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const elementToObserve = ref.current; // Capture ref.current at the time of effect setup
+
+    if (!elementToObserve) {
+      return; // No element to observe, so do nothing
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          if (triggerOnce && ref.current) {
-            observer.unobserve(ref.current);
+          if (triggerOnce) {
+            observer.unobserve(elementToObserve); // Unobserve the captured element
           }
         } else if (!triggerOnce) {
           setIsVisible(false);
@@ -36,32 +42,18 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
       }
     );
 
-<<<<<<< HEAD
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(elementToObserve); // Observe the captured element
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-=======
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
->>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
-      }
+      // Cleanup: always unobserve the element that was observed by this effect instance
+      observer.unobserve(elementToObserve);
     };
-  }, [threshold, rootMargin, triggerOnce]);
+  }, [threshold, rootMargin, triggerOnce, ref]); // ref is included because elementToObserve depends on ref.current
 
   return { ref, isVisible };
 }
 
-// Animation utility classes
+// Animation utility classes (keep your existing animation classes below this)
 export const fadeInUp = "opacity-0 translate-y-8 transition-all duration-700 ease-out";
 export const fadeInVisible = "opacity-100 translate-y-0";
 
