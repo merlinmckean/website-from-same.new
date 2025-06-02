@@ -117,20 +117,170 @@ export default function Home() {
         </AnimatedSection>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="relative z-10 bg-white">
-        {/* ...keep as-is... */}
-      </section>
+  <div className="px-6 md:px-12 py-32">
+    <div className="max-w-6xl mx-auto">
+      <AnimatedSection>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-garamond font-normal text-gray-900 mb-6 tracking-tight">
+            AI solutions that drive
+            <br />
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              real business impact
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We help companies implement AI strategically, efficiently, and with measurable results.
+            No buzzwords, just practical solutions that transform how you work.
+          </p>
+        </div>
+      </AnimatedSection>
 
-      {/* Process Section */}
-      <section id="about" className="relative z-10 bg-gray-50">
-        {/* ...keep as-is... */}
-      </section>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            icon: Brain,
+            title: "AI Strategy & Consulting",
+            description: "Develop comprehensive AI strategies tailored to your industry and business objectives.",
+          },
+          {
+            icon: Zap,
+            title: "Process Automation",
+            description: "Automate repetitive tasks and workflows to increase efficiency and reduce costs.",
+          },
+          {
+            icon: Target,
+            title: "Predictive Analytics",
+            description: "Leverage data to predict trends, optimize operations, and make smarter decisions.",
+          },
+          {
+            icon: Shield,
+            title: "AI Implementation",
+            description: "End-to-end implementation of AI tools and systems with proper training and support.",
+          },
+          {
+            icon: Users,
+            title: "Team Training",
+            description: "Comprehensive training programs to help your team adopt and maximize AI tools.",
+          },
+          {
+            icon: Star,
+            title: "Custom AI Solutions",
+            description: "Bespoke AI applications and integrations designed specifically for your business needs.",
+          },
+        ].map((service, index) => (
+          <AnimatedSection key={service.title} delay={index * 100}>
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow hover-lift">
+              <CardContent className="p-8">
+                <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                  <service.icon className="w-7 h-7 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* CTA Section */}
-      <section className="relative z-10 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-        {/* ...keep as-is... */}
-      </section>
+
+<section id="about" className="relative z-10 bg-gray-50">
+  <div className="px-6 md:px-12 py-32">
+    <div className="max-w-6xl mx-auto">
+      <AnimatedSection>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-garamond font-normal text-gray-900 mb-6 tracking-tight">
+            From consultation to transformation.
+            <br />
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Here's how we work.
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our proven methodology ensures successful AI implementation with measurable results and lasting impact.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      <div className="space-y-12">
+        {[
+          {
+            step: "1",
+            title: "Discovery & Assessment",
+            description: "We analyze your current processes, identify AI opportunities, and assess your readiness for transformation.",
+          },
+          {
+            step: "2",
+            title: "Strategy Development",
+            description: "Create a comprehensive AI roadmap with clear milestones, timelines, and expected ROI.",
+          },
+          {
+            step: "3",
+            title: "Pilot Implementation",
+            description: "Start with a focused pilot project to demonstrate value and refine our approach.",
+          },
+          {
+            step: "4",
+            title: "Full-Scale Deployment",
+            description: "Roll out AI solutions across your organization with comprehensive training and support.",
+          },
+          {
+            step: "5",
+            title: "Optimization & Growth",
+            description: "Continuously monitor, optimize, and expand your AI capabilities for maximum impact.",
+          },
+        ].map((item, index) => (
+          <AnimatedSection key={item.step} delay={index * 150}>
+            <div className="flex items-start space-x-8">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                  {item.step}
+                </div>
+              </div>
+              <div className="flex-grow">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section className="relative z-10 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+  <div className="px-6 md:px-12 py-24 text-center">
+    <div className="max-w-4xl mx-auto">
+      <AnimatedSection>
+        <h2 className="text-4xl md:text-5xl font-garamond font-normal text-white mb-8 tracking-tight">
+          Ready to transform your business with AI?
+        </h2>
+        <p className="text-xl text-purple-100 mb-12 max-w-2xl mx-auto font-inter">
+          Join forward-thinking companies that are already leveraging AI
+          to gain competitive advantages and drive growth.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <ContactForm
+            trigger={
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold">
+                Schedule Free Consultation
+              </Button>
+            }
+          />
+          <Button variant="outline" size="lg" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg">
+            Download AI Guide
+          </Button>
+        </div>
+      </AnimatedSection>
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="relative z-10 bg-gray-900 text-white">
