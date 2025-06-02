@@ -36,7 +36,7 @@ export default function Home() {
         <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <img src="/merlin-ai-logo.png" alt="Merlin AI Logo" className="h-8 w-auto" />
         </Link>
-        <div className="flex items-center space-x-6 text-white/90 text-sm font-source-sans font-semibold">
+        <div className="flex items-center space-x-6 text-white/90 text-sm font-semibold">
           <Link href="#services" className="hover:text-white transition-colors font-medium">Services</Link>
           <Link href="#about" className="hover:text-white transition-colors font-medium">About</Link>
           <Link href="/contact" className="hover:text-white transition-colors font-medium">Contact</Link>
@@ -59,7 +59,7 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection delay={600}>
-            <p className="text-xl md:text-2xl text-purple-100 mb-12 max-w-4xl mx-auto leading-relaxed font-source-sans">
+            <p className="text-xl md:text-2xl text-purple-100 mb-12 max-w-4xl mx-auto leading-relaxed">
               Unlock the power of artificial intelligence for your business.
               From automated workflows to intelligent decision-making,
               we help companies implement AI solutions that drive real results.
@@ -311,8 +311,8 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-4">Contact</h4>
                 <ul className="space-y-2 text-gray-400">
-                  <li>hello@merlinai.consulting</li>
-                  <li>+1 (555) 123-4567</li>
+                  <li>merlin@merlinai.work</li>
+                  <li>406-263-5444</li>
                   <li>Schedule a Call</li>
                   <li>LinkedIn</li>
                 </ul>

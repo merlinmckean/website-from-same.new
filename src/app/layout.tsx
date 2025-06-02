@@ -25,6 +25,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Merlin AI - AI Consulting & Implementation | merlinai.work",
   description: "Transform your business with intelligent AI solutions. Strategic consulting, implementation, and optimization services for modern companies.",
+  // Favicon link will be added by Next.js automatically if placed in app/favicon.ico
+  // or can be specified here for other formats/locations if needed.
+  // For a PNG in public, it's often handled by placing favicon.png or icon.png in app directory
+  // or by explicitly linking in the <head>.
 };
 
 export default function RootLayout({
@@ -36,6 +40,7 @@ export default function RootLayout({
     <html lang="en" className={`${ebGaramond.variable} ${sourceSans.variable} ${inter.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className="font-inter antialiased">
         {children}

@@ -141,9 +141,34 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Information Updated Here */}
             <div className="space-y-8">
-              {/* ... you can keep the rest unchanged ... */}
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <h3 className="text-2xl font-cormorant font-medium mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <Mail className="w-6 h-6 text-indigo-600 mt-1" />
+                    <div>
+                      <h4 className="font-medium text-gray-900">Email</h4>
+                      <p className="text-gray-600">merlin@merlinai.work</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <Phone className="w-6 h-6 text-indigo-600 mt-1" />
+                    <div>
+                      <h4 className="font-medium text-gray-900">Phone</h4>
+                      <p className="text-gray-600">406-263-5444</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-xl p-8 text-white">
+                <h3 className="text-2xl font-cormorant font-medium mb-4">What to Expect</h3>
+                <ul className="space-y-3">
+                  {/* ... list items ... */}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
