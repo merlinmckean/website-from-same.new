@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+<<<<<<< HEAD
+=======
+import Link from 'next/link'
+>>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -44,6 +48,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between p-6 md:px-12 bg-white/80 backdrop-blur-md">
+<<<<<<< HEAD
         <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <MerlinLogo size="md" darkMode />
         </a>
@@ -51,6 +56,15 @@ export default function ContactPage() {
           <a href="/#services" className="hover:text-gray-900 transition-colors font-medium">Services</a>
           <a href="/#about" className="hover:text-gray-900 transition-colors font-medium">About</a>
           <a href="/contact" className="hover:text-gray-900 transition-colors font-medium text-gray-900">Contact</a>
+=======
+        <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <MerlinLogo size="md" darkMode />
+        </Link>
+        <div className="hidden md:flex items-center space-x-8 text-gray-700">
+          <Link href="/#services" className="hover:text-gray-900 transition-colors font-medium">Services</Link>
+          <Link href="/#about" className="hover:text-gray-900 transition-colors font-medium">About</Link>
+          <Link href="/contact" className="hover:text-gray-900 transition-colors font-medium text-gray-900">Contact</Link>
+>>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
         </div>
       </nav>
 
@@ -58,13 +72,21 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
+<<<<<<< HEAD
             <a
+=======
+            <Link
+>>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
               href="/"
               className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors mb-8 font-medium"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
+<<<<<<< HEAD
             </a>
+=======
+            </Link>
+>>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
             <h1 className="text-4xl md:text-6xl font-garamond font-normal text-gray-900 mb-6 tracking-tight">
               Let's discuss your
               <br />

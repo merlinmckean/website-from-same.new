@@ -36,6 +36,7 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
       }
     );
 
+<<<<<<< HEAD
     if (ref.current) {
       observer.observe(ref.current);
     }
@@ -43,6 +44,16 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
+=======
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+>>>>>>> 754dd9186e70d418523e1d2ef5aee6e23698ddc4
       }
     };
   }, [threshold, rootMargin, triggerOnce]);
