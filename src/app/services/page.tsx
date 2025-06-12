@@ -22,15 +22,23 @@ export default function ServicesPage() {
                   ▼
                 </span>
               </summary>
+
               <div className="mt-4 text-gray-700">
                 <p className="mb-3">
                   {service.description} Filler overview for <strong>{service.title}</strong>.
                 </p>
                 <ul className="list-disc list-inside mb-3 space-y-1">
-                  <li>Use case 1 for <strong>{service.title}</strong>.</li>
-                  <li>Use case 2 for <strong>{service.title}</strong>.</li>
+                  <li>
+                    Use case 1 for <strong>{service.title}</strong>.
+                  </li>
+                  <li>
+                    Use case 2 for <strong>{service.title}</strong>.
+                  </li>
                 </ul>
-                <a href="/case-studies" className="text-indigo-600 hover:underline">
+                <a
+                  href="/case-studies"
+                  className="text-indigo-600 hover:underline"
+                >
                   View related case studies &rarr;
                 </a>
               </div>
