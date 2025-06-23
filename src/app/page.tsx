@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ContactForm } from "@/components/ui/contact-form";
 import { ArrowRight, Brain, Zap, Target, Shield, Users, Star } from "lucide-react";
 
-// Client component for animations
+// Client component for animations!!!!!!!!!!!!
 function AnimatedSection({
   children,
   className = "",
@@ -250,7 +250,7 @@ export default function Home() {
                   <li>merlin@merlinai.work</li>
                   <li>406-263-5444</li>
                   <li><Link href="/contact" className="hover:underline">Schedule a Call</Link></li>
-                  <li><Link href="https://linkedin.com/in/merlin-mckean" target="_blank" className="hover:underline">LinkedIn</Link></li>
+                  <li><Link href="https://www.linkedin.com/company/merlinai-consulting/" target="_blank" className="hover:underline">LinkedIn</Link></li>
                 </ul>
               </div>
             </div>

@@ -35,20 +35,35 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    setIsLoading(false);
-    setIsSubmitted(true);
-
-    // Reset form after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setIsOpen(false);
-      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-    }, 2000);
+  
+    try {
+      const res = await fetch("https://formbricks.com/api/survey-responses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          surveyId: "cmc9erjae3xmsxr01fl9eamh2",
+          data: formData,
+        }),
+      });
+  
+      if (!res.ok) throw new Error("Form submission failed");
+  
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setIsOpen(false);
+        setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
+  
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
