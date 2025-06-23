@@ -42,10 +42,11 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), // { name, email, phone, company, message }
+        redirect: "manual", // ← this avoids the CORS issue on redirect
+        body: JSON.stringify(formData),
       });
   
-      if (!res.ok) throw new Error("Submission failed");
+      if (!res.ok && res.status !== 303) throw new Error("Submission failed");
   
       setIsSubmitted(true);
       setTimeout(() => {
@@ -60,6 +61,7 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
       setIsLoading(false);
     }
   };
+  
   
   
   
