@@ -9,16 +9,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { name, email, phone, company, message } = req.body;
 
     const payload = {
+      surveyId: "cmc9erjae3xmsxr01fl9eamh2", // from your Formbricks dashboard
       data: {
         name,
         email,
         phone,
         company,
-        message, // or use free_text_question_1 here if Formbricks hasn't been renamed
+        message,
       },
     };
 
-    const fbRes = await fetch("https://formbricks.com/f/cmc9erjae3xmsxr01fl9eamh2", {
+    const fbRes = await fetch("https://app.formbricks.com/api/survey-responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,17 +27,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify(payload),
     });
 
-    const contentType = fbRes.headers.get("content-type");
-    let responseData;
-
-    if (contentType?.includes("application/json")) {
-      responseData = await fbRes.json();
-    } else {
-      responseData = await fbRes.text();
-    }
-
-    console.log("Formbricks response status:", fbRes.status);
-    console.log("Formbricks response body:", responseData);
+    const fbResponseBody = await fbRes.text();
+    console.log("Formbricks response:", fbResponseBody);
 
     if (!fbRes.ok) {
       throw new Error(`Formbricks responded with status ${fbRes.status}`);
