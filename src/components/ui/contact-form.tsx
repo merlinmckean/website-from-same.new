@@ -51,7 +51,9 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(mappedData),
+        body: JSON.stringify({ data: mappedData }),
+        mode: "cors",
+
       });
   
       if (!res.ok) throw new Error("Form submission failed");
