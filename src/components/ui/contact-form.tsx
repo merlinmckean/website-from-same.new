@@ -36,13 +36,22 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
     e.preventDefault();
     setIsLoading(true);
   
+    // Map your frontend field names to what Formbricks expects
+    const mappedData = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      free_text_question_1: formData.message, // <-- matches "Tell us about your AI goals" in Formbricks
+    };
+  
     try {
       const res = await fetch("https://formbricks.com/f/cmc9erjae3xmsxr01fl9eamh2", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(mappedData),
       });
   
       if (!res.ok) throw new Error("Form submission failed");
@@ -60,6 +69,7 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
       setIsLoading(false);
     }
   };
+  
   
   
 
