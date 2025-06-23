@@ -36,26 +36,16 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
     e.preventDefault();
     setIsLoading(true);
   
-    // Map your frontend field names to what Formbricks expects
-    const mappedData = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      free_text_question_1: formData.message, // <-- matches "Tell us about your AI goals" in Formbricks
-    };
-  
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://submit-form.com/oYc7LeGoJ", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // { name, email, phone, company, message }
       });
-      
   
-      if (!res.ok) throw new Error("Form submission failed");
+      if (!res.ok) throw new Error("Submission failed");
   
       setIsSubmitted(true);
       setTimeout(() => {
@@ -63,13 +53,14 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
         setIsOpen(false);
         setFormData({ name: '', email: '', company: '', phone: '', message: '' });
       }, 2000);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      alert("Something went wrong. Check the console for details.");
+    } catch (err) {
+      console.error("Formspark error:", err);
+      alert("Something went wrong. Please try again later.");
     } finally {
       setIsLoading(false);
     }
   };
+  
   
   
   
