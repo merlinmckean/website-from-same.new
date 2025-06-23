@@ -1,5 +1,3 @@
-// src/pages/api/contact.ts
-
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,9 +14,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email,
         phone,
         company,
-        message, // If you've renamed the Formbricks question to "message"
-        // OR: free_text_question_1: message — if you haven't renamed it
-      }
+        message, // or use free_text_question_1 here if Formbricks hasn't been renamed
+      },
     };
 
     const fbRes = await fetch("https://formbricks.com/f/cmc9erjae3xmsxr01fl9eamh2", {
@@ -29,10 +26,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify(payload),
     });
 
-    const text = await fbRes.text();
-    console.log("Formbricks response:", text);
+    const contentType = fbRes.headers.get("content-type");
+    let responseData;
 
-    if (!fbRes.ok) throw new Error(text);
+    if (contentType?.includes("application/json")) {
+      responseData = await fbRes.json();
+    } else {
+      responseData = await fbRes.text();
+    }
+
+    console.log("Formbricks response status:", fbRes.status);
+    console.log("Formbricks response body:", responseData);
+
+    if (!fbRes.ok) {
+      throw new Error(`Formbricks responded with status ${fbRes.status}`);
+    }
 
     return res.status(200).json({ success: true });
   } catch (err) {
