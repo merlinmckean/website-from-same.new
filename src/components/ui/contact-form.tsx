@@ -42,11 +42,17 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
         headers: {
           "Content-Type": "application/json",
         },
-        redirect: "manual", // ← this avoids the CORS issue on redirect
+        redirect: "manual",
         body: JSON.stringify(formData),
       });
   
-      if (!res.ok && res.status !== 303) throw new Error("Submission failed");
+      const resText = await res.text();
+      console.log("Formspark status:", res.status);
+      console.log("Formspark response:", resText);
+  
+      if (!res.ok && res.status !== 303) {
+        throw new Error("Submission failed");
+      }
   
       setIsSubmitted(true);
       setTimeout(() => {
@@ -61,6 +67,7 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
       setIsLoading(false);
     }
   };
+  
   
   
   
