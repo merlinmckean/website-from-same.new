@@ -46,15 +46,14 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
     };
   
     try {
-      const res = await fetch("https://formbricks.com/f/cmc9erjae3xmsxr01fl9eamh2", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ data: mappedData }),
-        mode: "cors",
-
+        body: JSON.stringify(formData),
       });
+      
   
       if (!res.ok) throw new Error("Form submission failed");
   
