@@ -37,15 +37,12 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
     setIsLoading(true);
   
     try {
-      const res = await fetch("https://formbricks.com/api/survey-responses", {
+      const res = await fetch("https://formbricks.com/f/cmc9erjae3xmsxr01fl9eamh2", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          surveyId: "cmc9erjae3xmsxr01fl9eamh2",
-          data: formData,
-        }),
+        body: JSON.stringify(formData),
       });
   
       if (!res.ok) throw new Error("Form submission failed");
@@ -57,12 +54,13 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
         setFormData({ name: '', email: '', company: '', phone: '', message: '' });
       }, 2000);
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again later.");
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Check the console for details.");
     } finally {
       setIsLoading(false);
     }
   };
+  
   
 
   const handleInputChange = (field: string, value: string) => {
