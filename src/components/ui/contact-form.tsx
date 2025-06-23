@@ -36,23 +36,25 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
     e.preventDefault();
     setIsLoading(true);
   
+    const payload = new URLSearchParams({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      message: formData.message,
+    }).toString();
+  
     try {
       const res = await fetch("https://submit-form.com/oYc7LeGoJ", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Accept": "application/json", // ← important
         },
-        redirect: "manual",
-        body: JSON.stringify(formData),
+        body: payload,
       });
   
-      const resText = await res.text();
-      console.log("Formspark status:", res.status);
-      console.log("Formspark response:", resText);
-  
-      if (!res.ok && res.status !== 303) {
-        throw new Error("Submission failed");
-      }
+      if (!res.ok) throw new Error("Formspark rejected the submission");
   
       setIsSubmitted(true);
       setTimeout(() => {
@@ -67,6 +69,7 @@ export function ContactForm({ trigger, title = "Schedule Free Consultation" }: C
       setIsLoading(false);
     }
   };
+  
   
   
   
