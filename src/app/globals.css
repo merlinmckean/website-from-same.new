@@ -1,8 +1,34 @@
+/* ─── seamless marquee key-frame ───────────────────────── */
+@keyframes logo-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1px)); } /* tiny overshoot */
+}
+
+
+/* utility that uses a CSS var for the duration */
+@layer utilities {
+  .marquee-track {
+    @apply flex gap-12;
+    animation: logo-scroll linear infinite;
+    animation-duration: var(--marquee-speed, 20s);
+  }
+
+  /* edge fade mask */
+  .mask-fade-x {
+    mask-image: linear-gradient(to right,
+      transparent 0%, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right,
+      transparent 0%, black 12%, black 88%, transparent);
+  }
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

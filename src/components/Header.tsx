@@ -18,11 +18,11 @@ export default function Header() {
       <Link href="/" className="flex items-center space-x-3">
         <img src={logoSrc} alt="Merlin AI Logo" className="h-8 w-auto" />
       </Link>
-      <div className="flex items-center space-x-8 text-sm font-semibold text-gray-900">
-        <Link href="/services" className="hover:text-gray-700 transition-colors">Services</Link>
-        <Link href="/about" className="hover:text-gray-700 transition-colors">About</Link>
-        <Link href="/case-studies" className="hover:text-gray-700 transition-colors">Case Studies</Link>
-        <Link href="/contact" className="hover:text-gray-700 transition-colors">Contact</Link>
+      <div className="flex items-center space-x-6 text-gray-900 text-base md:text-lg font-semibold">
+        {/* <Link href="/services" className="hover:text-gray-700 transition-colors">Services</Link> */}
+        <Link href="/about" className="hover:text-gray-700 transition-colors px-2">About</Link>
+        {/* <Link href="/case-studies" className="hover:text-gray-700 transition-colors">Case Studies</Link> */}
+        <Link href="/contact" className="hover:text-gray-700 transition-colors px-2">Contact</Link>
       </div>
     </nav>
   );
